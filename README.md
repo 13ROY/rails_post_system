@@ -5,7 +5,7 @@ Ruby On Rails Postal Database
 - Download PostGresSQL
 - Download Jenkins
 - ~~Download Flyway~~
-- Download Migrant
+- Download Vagrant
 - Download puppet (or similar) to automate  program installation
 - Create A Maven Project (For automation ease)
 - Create a PostGresSQL database/user and schema (using ~~flyway~~/rake migrate)
