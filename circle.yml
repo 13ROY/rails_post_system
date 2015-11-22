@@ -1,0 +1,17 @@
+## Customize the test machine
+machine:
+
+  timezone:
+    GB
+
+  ruby:
+    version:
+      2.2.3-p173
+      
+test:
+  post: 
+    - bundle exec rake testcode
+      
+## Customize deployment commands
+deployment:
+    branch: master
