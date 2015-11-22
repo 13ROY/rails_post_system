@@ -11,7 +11,3 @@ machine:
 test:
   post: 
     - bundle exec rake testcode
-      
-## Customize deployment commands
-deployment:
-    branch: master
