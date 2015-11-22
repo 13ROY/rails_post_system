@@ -36,12 +36,20 @@ gem 'tzinfo-data'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-#group :development, :test do
+group :development, :test do
+  # use rubocop - for testing beautiful ruby code
+  gem 'rubocop', require: false
+  # static analysis tools to your HAML documents
+  gem 'haml-lint', require: false
+  # use reek - for testing code smells
+  gem 'reek'
+  # rails best practise
+  # gem 'rails_best_practices'
   # Call 'byebug' anywhere in the code to stop execution and
   #  get a debugger console
-# disabled as only works in ruby 2.0>
-#  gem 'byebug'
-#end
+  # disabled as only works in ruby 2.0>
+  #  gem 'byebug'
+end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -51,12 +59,3 @@ group :development do
   # background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-
-# use rubocop - for testing beautiful ruby code
-gem "rubocop", require: false
-# static analysis tools to your HAML documents
-gem 'haml-lint'
-# use reek - for testing code smells
-gem "reek"
-# rails best practise
-#gem 'rails_best_practices'
