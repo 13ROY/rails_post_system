@@ -9,9 +9,11 @@ namespace :testcode do
 #      tsk.rspec_opts = '--format p'
 #    end
 
-    desc 'Execute rubocop -DR'
+    desc 'Execute rubocop'
     RuboCop::RakeTask.new(:rubocop) do | tsk |
-      tsk.options = ['-DR'] # Rails, display cop name
+      # Rails, display cop name, output format and file output
+      report = ($CIRCLE_ARTIFACTS) ? "#{$CIRCLE_ARTIFACTS}/rubocop_report.json" : 'rubocop_report.json'
+      tsk.options = ['-DR', '--format', 'json', '--out', "#{report}"]
       tsk.fail_on_error = false
     end
 
@@ -22,14 +24,14 @@ namespace :testcode do
       # tsk.verbose = true
     end
 
-    desc 'Execute haml-lint'
-    task haml_lint: :environment do
-      puts 'HAML-LINT'
-      puts %x(haml-lint .)
-    end
+#    desc 'Execute haml-lint'
+#    task haml_lint: :environment do
+#      puts 'HAML-LINT'
+#      puts %x(haml-lint .)
+#    end
 
 #    desc 'Execute rails_best_practices'
-#    task rbp: :environment do
+#    task rbp::environment do
 #      require 'rails_best_practices'
 #      analyzer = RailsBestPractices::Analyzer.new('.')
 #      analyzer.analyze
@@ -40,5 +42,5 @@ namespace :testcode do
 end
 
 task :testcode do
-  %w(rubocop haml_lint reek).each { |task| Rake::Task["testcode:#{task}"].invoke }
+  %w(rubocop reek).each { | task | Rake::Task["testcode:#{task}"].invoke }
 end

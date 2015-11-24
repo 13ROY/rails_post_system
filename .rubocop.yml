@@ -6,10 +6,10 @@ inherit_from:
 # Common configuration.
 AllCops:
   Exclude:
-    - 'test/**/*'
+    - 'bin/*'
     - 'config/**/*'
     - 'db/**/*'
     - 'lib/**/*'
-    - 'bin/*'
-    - 'Gemfile.lock'
+    - 'test/**/*'
     - 'vendor/**/*'
+    - 'Gemfile.lock'

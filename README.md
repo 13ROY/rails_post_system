@@ -1,4 +1,5 @@
 # rails_post_system
+[![Circle CI](https://circleci.com/gh/13ROY/rails_post_system.svg?style=svg)](https://circleci.com/gh/13ROY/rails_post_system)
 Ruby On Rails Postal Database
 `Ruby 2.2.3`
 `PostgresSQL`
